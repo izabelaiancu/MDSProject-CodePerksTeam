@@ -13,7 +13,4 @@ This is a recycling initiative that also helps the enviroment and, why not, the 
 - We were inspired by this practice on Instagram and wanted to make it a stand-alone app.
 ### Possible challanges:
 - The time optimisation for searching clothes by tags since there can be many entries for the same tag.
-### Utilisation cases:
-- USER -> Creates account -> Registers Announcement on his Dashboard -> Adds the tags that describe the product he wants to sell, in order to reach potential buyers.
-- USER -> Logs into his account -> Applies filter for 'Glasses' -> Selects the prefered product -> Notifies the seller
-- USER -> Logs into his account -> Search products by #Vintage -> Selects the prefered product -> Notifies the seller
+### Utilisation examples:

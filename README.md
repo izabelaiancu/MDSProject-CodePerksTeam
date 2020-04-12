@@ -1,5 +1,5 @@
 # Second Hand Clothes App for selling/buying
-## Our wonder team : @Eliza-Maria, @izabelaiancu, @Carla-Nicu
+## Our wonder team : @Eliza-Maria  @izabelaiancu  @Carla-Nicu
 ### About our project
 - Why this project?
 It's not hard to notice how exchangeable clothes are especially among young people.

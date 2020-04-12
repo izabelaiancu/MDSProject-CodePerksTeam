@@ -14,3 +14,7 @@ This is a recycling initiative that also helps the enviroment and, why not, the 
 ### Possible challanges:
 - The time optimisation for searching clothes by tags since there can be many entries for the same tag.
 ### Utilisation examples:
+<img width="867" alt="arhitectura proiect mds" src="https://user-images.githubusercontent.com/38560816/79069025-af58d680-7cd3-11ea-9942-0442cf72c20f.png">
+
+ ### Project Arhitecture:
+![diagram mds](https://user-images.githubusercontent.com/38560816/79069042-dca58480-7cd3-11ea-90e9-7dd67fee2399.png)

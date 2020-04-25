@@ -23,7 +23,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>xml-apis</groupId>-->
+<!--            <artifactId>xml-apis</artifactId>-->
+<!--            <version>1.4.01.jar</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <dependency>
             <!-- Spring boot dependency -->
             <groupId>org.springframework.boot</groupId>

@@ -1,17 +1,20 @@
-package com.mds.mds;
+package com.mds.mds.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+
+@Entity(name = "Produse")
+@Table(name = Produse.TABLE_NAME)
 public class Produse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nume;
     private double pret;
+    public static final String TABLE_NAME= "produse";
+
+    public Produse() {
+    }
 
     public Produse(int id, String nume, double pret) {
         this.id = id;

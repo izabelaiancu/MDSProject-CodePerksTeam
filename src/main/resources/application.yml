@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: root
+    password: tiMMy?2019
+    url: jdbc:mysql://0.tcp.ngrok.io:10830/chatzone
+    driver-class-name: com.mysql.cj.jdbc.Driver
+jpa:
+  show-sql: false
+  hibernate:
+    ddl-auto: update
+  properties.hibernate.dialect: org.hibernate.dialect.MYSQL5Dialect

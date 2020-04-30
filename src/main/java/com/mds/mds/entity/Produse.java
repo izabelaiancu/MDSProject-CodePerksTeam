@@ -2,8 +2,7 @@ package com.mds.mds.entity;
 
 import javax.persistence.*;
 
-
-@Entity(name = "Produse")
+@Entity
 @Table(name = Produse.TABLE_NAME)
 public class Produse {
     @Id
@@ -11,6 +10,7 @@ public class Produse {
     private int id;
     private String nume;
     private double pret;
+
     public static final String TABLE_NAME= "produse";
 
     public Produse() {

@@ -32,10 +32,10 @@ public class ControllerProduse {
         return service.getProdusById(id);
     }
 
-    @GetMapping("/produs/{nume}")
-    public Produse findProductByName(@PathVariable String nume){
-        return service.getProdusByName(nume);
-    }
+//   @GetMapping("/produs/{nume}")
+//    public Produse findProductByName(@PathVariable String nume){
+//        return service.getProdusByName(nume);
+//    }
 
     @PutMapping("/update")
     public Produse updateProdus(@RequestBody Produse produs){
@@ -46,11 +46,6 @@ public class ControllerProduse {
     public String deleteProduct(int id){
         return service.deleteProdus(id);
     }
-
-
-
-
-
 
 
 

@@ -3,11 +3,11 @@ package com.mds.mds.service;
 import com.mds.mds.entity.Produse;
 import com.mds.mds.repository.RepositoryProduse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
+@Service
 public class ServiceProduse {
     @Autowired
     private RepositoryProduse repository;
@@ -33,9 +33,10 @@ public class ServiceProduse {
         return repository.findById(id).orElse(null);
     }
 
-    public Produse getProdusByName(String nume){
-        return repository.findByName(nume);
-    }
+//   public Produse getProdusByName(String nume){
+//        return repository.findByName(nume);
+//   }
+//
 
     // TO DO si ca lista by name
 

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RepositoryProduse extends JpaRepository<Produse,Integer> {
 
-    Produse findByName(String nume);
+//   Produse findByName(String nume);
 
 }

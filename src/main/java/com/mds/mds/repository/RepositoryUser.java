@@ -1,12 +1,12 @@
 package com.mds.mds.repository;
 
-import com.mds.mds.entity.Produse;
+import com.mds.mds.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface RepositoryProduse extends JpaRepository<Produse,Integer> {
+public interface RepositoryUser extends JpaRepository<User,Integer> {
 
-//   Produse findByName(String nume);
+//   Item findByName(String nume);
 
 }

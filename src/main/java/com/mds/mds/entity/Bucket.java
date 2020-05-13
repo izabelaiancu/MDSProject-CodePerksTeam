@@ -1,6 +1,8 @@
 package com.mds.mds.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = Bucket.TABLE_NAME)
@@ -9,8 +11,13 @@ public class Bucket {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private int id;
+    @OneToOne
     private User bucketOwner;
-    private Post[] posts;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Post> posts = new ArrayList<>();
     private String deliveryAddress;
     private Double totalPrice;
 
@@ -19,7 +26,7 @@ public class Bucket {
     public Bucket() {
     }
 
-    public Bucket(int id, User bucketOwner, Post[] posts, String deliveryAddress, Double totalPrice) {
+    public Bucket(int id, User bucketOwner, List<Post> posts, String deliveryAddress, Double totalPrice) {
         this.id = id;
         this.bucketOwner = bucketOwner;
         this.posts = posts;
@@ -27,7 +34,7 @@ public class Bucket {
         this.totalPrice = totalPrice;
     }
 
-    public Bucket(User bucketOwner, Post[] posts, String deliveryAddress, Double totalPrice) {
+    public Bucket(User bucketOwner, List<Post> posts, String deliveryAddress, Double totalPrice) {
         this.bucketOwner = bucketOwner;
         this.posts = posts;
         this.deliveryAddress = deliveryAddress;
@@ -42,7 +49,7 @@ public class Bucket {
         return bucketOwner;
     }
 
-    public Post[] getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
@@ -62,7 +69,7 @@ public class Bucket {
         this.bucketOwner = bucketOwner;
     }
 
-    public void setPosts(Post[] posts) {
+    public void setPosts(List posts) {
         this.posts = posts;
     }
 

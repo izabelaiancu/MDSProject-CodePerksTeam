@@ -1,2 +1,2 @@
-import post from "./post"
-export default post;
+// import post from "./post"
+// export default post;

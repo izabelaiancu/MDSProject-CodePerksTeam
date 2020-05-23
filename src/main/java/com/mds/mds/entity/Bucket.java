@@ -1,42 +1,49 @@
 package com.mds.mds.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = Bucket.TABLE_NAME)
+@Table(name = Bucket.TABLE_NAME, schema = Bucket.SCHEMA)
 public class Bucket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name="idbucket")
     private int id;
-    @OneToOne
+    //@OneToOne(mappedBy="iduser", orphanRemoval=true, cascade=CascadeType.PERSIST)
+    //@JoinColumn(name = "iduser", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bucket_owner", referencedColumnName = "iduser")
     private User bucketOwner;
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Post> posts = new ArrayList<>();
+
+
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    @JoinColumn(name = "idpost")
+//    private List<Post> posts = new ArrayList<>();
+
+    @Column(name="delivery_address")
     private String deliveryAddress;
+    @Column(name="total_price")
     private Double totalPrice;
 
+
     public static final String TABLE_NAME = "Bucket";
+    public static final String SCHEMA="greendress";
 
     public Bucket() {
     }
 
-    public Bucket(int id, User bucketOwner, List<Post> posts, String deliveryAddress, Double totalPrice) {
+    public Bucket(int id, User bucketOwner, String deliveryAddress, Double totalPrice) {
         this.id = id;
         this.bucketOwner = bucketOwner;
-        this.posts = posts;
         this.deliveryAddress = deliveryAddress;
         this.totalPrice = totalPrice;
     }
 
-    public Bucket(User bucketOwner, List<Post> posts, String deliveryAddress, Double totalPrice) {
+    public Bucket(User bucketOwner, String deliveryAddress, Double totalPrice) {
         this.bucketOwner = bucketOwner;
-        this.posts = posts;
         this.deliveryAddress = deliveryAddress;
         this.totalPrice = totalPrice;
     }
@@ -47,10 +54,6 @@ public class Bucket {
 
     public User getBucketOwner() {
         return bucketOwner;
-    }
-
-    public List<Post> getPosts() {
-        return posts;
     }
 
     public String getDeliveryAddress() {
@@ -67,10 +70,6 @@ public class Bucket {
 
     public void setBucketOwner(User bucketOwner) {
         this.bucketOwner = bucketOwner;
-    }
-
-    public void setPosts(List posts) {
-        this.posts = posts;
     }
 
     public void setDeliveryAddress(String deliveryAddress) {

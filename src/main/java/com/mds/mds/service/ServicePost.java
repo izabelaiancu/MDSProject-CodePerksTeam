@@ -52,7 +52,6 @@ public class ServicePost {
         existingPost.setPostOwner(post.getPostOwner());
         existingPost.setAvailable(post.getAvailable());
         existingPost.setDate(post.getDate());
-        existingPost.setItems(post.getItems());
         return repository.save(existingPost);
     }
 

@@ -3,37 +3,58 @@ package com.mds.mds.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = Item.TABLE_NAME)
+@Table(name = Item.TABLE_NAME, schema = Item.SCHEMA)
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="idtem")
     private int id;
+    @Column(name="name")
     private String name;
+    @Column(name="price")
     private double price;
+    @Column(name="description")
     private String description;
-    private int[] pictures; //ids
-    private String[] tags;
+
+
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    @JoinColumn(name = "itemid")
+//    private List<ItemPicture> pictures = new ArrayList<>(); //ids
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    @JoinColumn(name = "itemid")
+//    private List<ItemTag> tags = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idpost", referencedColumnName = "idpost")
+    private Post post;
 
     public static final String TABLE_NAME= "Item";
+    public static final String SCHEMA="greendress";
 
     public Item() {
     }
 
-    public Item(int id, String name, double price, String description, int[] pictures, String[] tags) {
+    public Item(int id, String name, double price, String description/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
-        this.pictures = pictures;
-        this.tags = tags;
+//        this.pictures = pictures;
+//        this.tags = tags;
     }
 
-    public Item(String name, double pret, String description, int[] pictures, String[] tags) {
+    public Item(String name, double pret, String description/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
         this.name = name;
         this.price = price;
         this.description = description;
-        this.pictures = pictures;
-        this.tags = tags;
+        //this.pictures = pictures;
+        //this.tags = tags;
     }
 
     public int getId() {
@@ -52,13 +73,13 @@ public class Item {
         return description;
     }
 
-    public int[] getPictures() {
-        return pictures;
-    }
-
-    public String[] getTags() {
-        return tags;
-    }
+//    public List<ItemPicture> getPictures() {
+//        return pictures;
+//    }
+//
+//    public List<ItemTag> getTags() {
+//        return tags;
+//    }
 
     public void setId(int id) {
         this.id = id;
@@ -76,11 +97,11 @@ public class Item {
         this.description = description;
     }
 
-    public void setPictures(int[] pictures) {
-        this.pictures = pictures;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
+//    public void setPictures(List<ItemPicture> pictures) {
+//        this.pictures = pictures;
+//    }
+//
+//    public void setTags(List<ItemTag> tags) {
+//        this.tags = tags;
+//    }
 }

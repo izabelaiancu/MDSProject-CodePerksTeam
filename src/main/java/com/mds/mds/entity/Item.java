@@ -8,7 +8,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="idtem")
-    private int id;
+    private int iditem;
     @Column(name="name")
     private String name;
     @Column(name="price")
@@ -32,7 +32,7 @@ public class Item {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idpost", referencedColumnName = "idpost")
-    private Post post;
+    private Post idpost;
 
     public static final String TABLE_NAME= "Item";
     public static final String SCHEMA="greendress";
@@ -40,25 +40,27 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String name, double price, String description/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
-        this.id = id;
+    public Item(int iditem, String name, double price, String description, Post idpost/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
+        this.iditem = iditem;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.idpost=idpost;
 //        this.pictures = pictures;
 //        this.tags = tags;
     }
 
-    public Item(String name, double pret, String description/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
+    public Item(String name, double pret, String description, Post idpost/*, List<ItemPicture> pictures, List<ItemTag> tags*/) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.idpost=idpost;
         //this.pictures = pictures;
         //this.tags = tags;
     }
 
     public int getId() {
-        return id;
+        return iditem;
     }
 
     public String getName() {
@@ -73,7 +75,11 @@ public class Item {
         return description;
     }
 
-//    public List<ItemPicture> getPictures() {
+    public Post getIdpost() {
+        return idpost;
+    }
+
+    //    public List<ItemPicture> getPictures() {
 //        return pictures;
 //    }
 //
@@ -81,8 +87,8 @@ public class Item {
 //        return tags;
 //    }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int iditem) {
+        this.iditem = iditem;
     }
 
     public void setName(String name) {
@@ -97,7 +103,11 @@ public class Item {
         this.description = description;
     }
 
-//    public void setPictures(List<ItemPicture> pictures) {
+    public void setIdpost(Post idpost) {
+        this.idpost = idpost;
+    }
+
+    //    public void setPictures(List<ItemPicture> pictures) {
 //        this.pictures = pictures;
 //    }
 //

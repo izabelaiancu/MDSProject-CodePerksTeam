@@ -43,7 +43,7 @@
 //    }
 //
 //    @DeleteMapping("/deleteMainFilter/{id}")
-//    public String deleteMainFilter(int id){
+//    public String deleteMainFilter(@PathVariable int id){
 //        return service.deleteMainFilter(id);
 //    }
 //

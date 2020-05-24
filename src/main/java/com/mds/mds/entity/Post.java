@@ -3,33 +3,37 @@ package com.mds.mds.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = Post.TABLE_NAME)
+@Table(name = Post.TABLE_NAME,schema = Post.SCHEMA)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name="idpost")
     private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_owner", referencedColumnName = "iduser")
     private User postOwner;
-    private Item[] items;
+
+    @Column(name="date")
     private String date; //has to be converted to date in MYSQL
+    @Column(name="is_available")
     private Boolean isAvailable;
 
     public static final String TABLE_NAME = "Post";
+    public static final String SCHEMA="greendress";
 
     public Post() {
     }
 
-    public Post(int id, User postOwner, Item[] items, String date, Boolean isAvailable) {
+    public Post(int id, User postOwner, String date, Boolean isAvailable) {
         this.id = id;
         this.postOwner=postOwner;
-        this.items = items;
         this.date = date;
         this.isAvailable = isAvailable;
     }
 
-    public Post(User postOwner, Item[] items, String date, Boolean isAvailable) {
+    public Post(User postOwner, String date, Boolean isAvailable) {
         this.postOwner=postOwner;
-        this.items = items;
         this.date = date;
         this.isAvailable = isAvailable;
     }
@@ -40,10 +44,6 @@ public class Post {
 
     public User getPostOwner() {
         return postOwner;
-    }
-
-    public Item[] getItems() {
-        return items;
     }
 
     public String getDate() {
@@ -60,10 +60,6 @@ public class Post {
 
     public void setPostOwner(User postOwner) {
         this.postOwner = postOwner;
-    }
-
-    public void setItems(Item[] items) {
-        this.items = items;
     }
 
     public void setDate(String date) {

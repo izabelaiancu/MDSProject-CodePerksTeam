@@ -1,35 +1,35 @@
 package com.mds.mds.service;
 
-import com.mds.mds.entity.Dashboard;
-import com.mds.mds.repository.RepositoryDashboard;
+import com.mds.mds.entity.DashboardPost;
+import com.mds.mds.repository.RepositoryDashboardPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ServiceDashboard{
+public class ServiceDashboardPost {
     @Autowired
-    private RepositoryDashboard repository;
+    private RepositoryDashboardPost repository;
 
-    public Dashboard saveDashboard(Dashboard dashboard){
+    public DashboardPost saveDashboardPost(DashboardPost dashboard){
 
         return repository.save(dashboard);
     }
 
-    public ServiceDashboard() {
+    public ServiceDashboardPost() {
     }
 
-    public List<Dashboard> saveDashboards(List<Dashboard> dashboards){
+    public List<DashboardPost> saveDashboardPosts(List<DashboardPost> dashboards){
 
         return repository.saveAll(dashboards);
     }
 
-    public List<Dashboard> getDashboards(){
+    public List<DashboardPost> getDashboardPosts(){
         return repository.findAll();
     }
 
-    public Dashboard getDashboardById(int id){
+    public DashboardPost getDashboardPostById(int id){
         return repository.findById(id).orElse(null);
     }
 
@@ -46,13 +46,13 @@ public class ServiceDashboard{
         return "Deleted dashboard || " + id;
     }
 
-    public Dashboard updateDashboard(Dashboard dashboard){
+    public DashboardPost updateDashboardPost(DashboardPost dashboard){
 
-        Dashboard existingDashboard= repository.findById(dashboard.getId()).orElse(null);
+        DashboardPost existingDashboard= repository.findById(dashboard.getId()).orElse(null);
         existingDashboard.setDashboardOwner(dashboard.getDashboardOwner());
-        existingDashboard.setMainFilter(dashboard.getMainFilter());
+        //existingDashboard.setMainFilter(dashboard.getMainFilter());
         existingDashboard.setPosts(dashboard.getPosts());
-        existingDashboard.setTags(dashboard.getTags());
+        //existingDashboard.setTags(dashboard.getTags());
         return repository.save(existingDashboard);
     }
 

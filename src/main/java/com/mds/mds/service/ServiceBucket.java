@@ -51,7 +51,7 @@ public class ServiceBucket {
         Bucket existingBucket = repository.findById(bucket.getId()).orElse(null);
         existingBucket.setBucketOwner(bucket.getBucketOwner());
         existingBucket.setDeliveryAddress(bucket.getDeliveryAddress());
-        existingBucket.setPosts(bucket.getPosts());
+        //existingBucket.setPosts(bucket.getPosts());
         existingBucket.setTotalPrice(bucket.getTotalPrice());
         return repository.save(existingBucket);
     }

@@ -1,11 +1,12 @@
-#spring:
-#  datasource:
-#    username: root
-#    password: codeperks3
-#    url: jdbc:mysql://localhost:3306/restapi
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#jpa:
-#  show-sql: false
-#  hibernate:
-#    ddl-auto: update
-#  properties.hibernate.dialect: org.hibernate.dialect.MYSQL5Dialect
+spring:
+  datasource:
+    username: root
+    password: tiMMy?2019
+    url: jdbc:mysql://localhost:3306/greendress
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    serverTimezone: useLegacyDatetimeCode=false&serverTimezone=UTC
+jpa:
+  show-sql: false
+  hibernate:
+    ddl-auto: update
+  properties.hibernate.dialect: org.hibernate.dialect.MYSQL8Dialect

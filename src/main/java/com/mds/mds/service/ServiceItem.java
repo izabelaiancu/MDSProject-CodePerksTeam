@@ -52,6 +52,7 @@ public class ServiceItem {
         existingItem.setName(item.getName());
         existingItem.setPrice(item.getPrice());
         existingItem.setDescription(item.getDescription());
+        existingItem.setIdpost(item.getIdpost());
         //existingItem.setPictures(item.getPictures());
         //existingItem.setTags(item.getTags());
         return repository.save(existingItem);

@@ -43,7 +43,7 @@ public class ControllerDashboardPost {
     }
 
     @DeleteMapping("/deleteDashboardPost/{id}")
-    public String deleteDashboardPost(int id){
+    public String deleteDashboardPost(@PathVariable int id){
         return service.deleteDashboard(id);
     }
 

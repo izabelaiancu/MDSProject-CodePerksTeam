@@ -18,17 +18,17 @@ public class ControllerBucket {
     }
 
     @PostMapping("/addBuckets")
-    public List<Bucket> addPosts(@RequestBody List<Bucket> buckets){
+    public List<Bucket> addBuckets(@RequestBody List<Bucket> buckets){
         return service.saveBuckets(buckets);
     }
 
     @GetMapping("/buckets")
-    public List<Bucket> findAllPosts(){
+    public List<Bucket> findAllBuckets(){
         return service.getBuckets();
     }
 
     @GetMapping("/bucket/{id}")
-    public Bucket findPostById(@PathVariable int id){
+    public Bucket findBucketById(@PathVariable int id){
         return service.getBucketById(id);
     }
 
@@ -43,7 +43,7 @@ public class ControllerBucket {
     }
 
     @DeleteMapping("/deleteBucket/{id}")
-    public String deleteBucket(int id){
+    public String deleteBucket(@PathVariable int id){
         return service.deleteBucket(id);
     }
 
